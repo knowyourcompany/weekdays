@@ -67,7 +67,7 @@ module ActiveSupport #:nodoc:
     module Numeric
       module Time
         # Returns a Time object that is n number of weekdays in the future of a given Date
-        def weekdays_from(time = ::Time.now)
+        def weekdays_from(time = ::Time.current)
           # -5.weekdays_from(time) == 5.weekdays_ago(time)
           return self.abs.weekdays_ago(time) if self < 0
           
@@ -84,7 +84,7 @@ module ActiveSupport #:nodoc:
         alias :weekdays_from_now :weekdays_from
 
         # Returns a Time object that is n number of weekdays in the past from a given Date
-        def weekdays_ago(time = ::Time.now)
+        def weekdays_ago(time = ::Time.current)
           # -5.weekdays_ago(time) == 5.weekdays_from(time)
           return self.abs.weekdays_from(time) if self < 0
           
